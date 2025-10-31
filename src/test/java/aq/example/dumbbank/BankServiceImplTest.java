@@ -24,7 +24,7 @@ class BankServiceImplTest {
     @Test
     public void getBalance_shouldReturn_valid_Balance() {
         BigDecimal balance1 = BigDecimal.valueOf(100);
-        long id = 1L;
+        long id = 2L;
         Mockito.when(bankRepository.findById(id)).thenReturn(Optional.of(new BalanceEntity(id, balance1)));
         BigDecimal balance = bankService.getBalance(id);
         assertEquals(balance1, balance);
