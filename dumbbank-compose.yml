@@ -19,6 +19,27 @@ services:
     volumes:
       - cache:/data
 
+  backend:
+    image: gorokhismyname/dumbbank:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/dumbbank
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_REDIS_HOST: cache
+      SPRING_REDIS_PORT : 6379
+    depends_on:
+      - db
+      - cache
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: gorokhismyname/dumbbankfe:latest
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
 volumes:
   db:
   cache:
