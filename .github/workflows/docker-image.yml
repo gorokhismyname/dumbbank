@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: myusername/myrepo
+      IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/dumbbank
       IMAGE_TAG: latest
 
     steps:
