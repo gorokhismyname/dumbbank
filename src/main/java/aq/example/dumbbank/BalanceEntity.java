@@ -3,7 +3,7 @@ package aq.example.dumbbank;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
@@ -21,4 +21,12 @@ public class BalanceEntity {
 
     public void setBalance(BigDecimal balance) { this.balance = balance; }
 
+
+    public BalanceEntity(Long id, BigDecimal balance) {
+        this.id = id;
+        this.balance = balance;
+    }
+
+    public BalanceEntity() {
+    }
 }
