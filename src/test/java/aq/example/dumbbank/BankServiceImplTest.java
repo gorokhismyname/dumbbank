@@ -18,6 +18,9 @@ class BankServiceImplTest {
     @Mock
     BankRepository bankRepository;
 
+    @Mock
+    RedisClient redisClient;
+
     @InjectMocks
     BankServiceImpl bankService;
 
