@@ -1,5 +1,6 @@
 package aq.example.dumbbank;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,13 +9,10 @@ import java.math.BigDecimal;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("dumbbank/api/v1")
+@RequiredArgsConstructor
 public class BankController {
 
     private final BankService bankService;
-
-    public BankController(BankService bankService) {
-        this.bankService = bankService;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<BigDecimal> getBalance(@PathVariable Long id) {
